@@ -13,7 +13,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "Mitsuki\\Controller\\": "src/"
+      "Mitsuki\\Controller\\": "src/",
+      "Tests\\": "tests/"
     }
   },
   "authors": [
@@ -26,5 +27,13 @@
     "php": ">=8.1",
     "mitsuki/http": "^1.0",
     "mitsuki/attributes": "^1.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^4.4"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   }
 }
