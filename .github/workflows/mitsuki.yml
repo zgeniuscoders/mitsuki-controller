@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pest-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, xml, ctype, iconv, intl
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Create Test Cache Directory
+        run: |
+          mkdir -p tests/temp_cache
+          chmod -R 777 tests/temp_cache
+
+      - name: Run Pest Tests
+        run: ./vendor/bin/pest --do-not-cache-result
