@@ -1,0 +1,30 @@
+{
+  "name": "mitsuki/controller",
+  "type": "library",
+  "description": "The core controller component for the Mitsuki framework, providing automated action resolution using Mitsuki Attributes and HTTP components.",
+  "license": "MIT",
+  "keywords": [
+    "mitsuki",
+    "controller",
+    "action-resolver",
+    "mvc",
+    "http-kernel",
+    "php8-attributes"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mitsuki\\Controller\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "zgeniusecoders",
+      "email": "zgeniusecoders@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "mitsuki/http": "^1.0",
+    "mitsuki/attributes": "^1.0"
+  }
+}
