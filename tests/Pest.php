@@ -11,6 +11,8 @@
 |
 */
 
+use Mitsuki\Controller\Resolvers\ControllerResolver;
+
 pest()->extend(Tests\TestCase::class)->in('Feature');
 
 /*
@@ -39,7 +41,15 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
-{
-    // ..
-}
+
+beforeEach(function () {
+    $this->testDir = sys_get_temp_dir() . '/mitsuki_tests';
+    if (is_dir($this->testDir)) {
+        exec("rm -rf " . escapeshellarg($this->testDir));
+    }
+    mkdir($this->testDir, 0777, true);
+});
+
+afterEach(function () {
+    exec("rm -rf " . escapeshellarg($this->testDir));
+});
