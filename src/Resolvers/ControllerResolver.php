@@ -4,6 +4,7 @@ namespace Mitsuki\Controller\Resolvers;
 
 use Mitsuki\Attributes\Controller;
 use Mitsuki\Attributes\Route;
+use Mitsuki\Contracts\Controllers\ControllerResolverInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
@@ -17,7 +18,7 @@ use ReflectionClass;
  *
  * @author Zgenius Matondo <zgeniuscoders@gmail.com>
  */
-class ControllerResolver
+class ControllerResolver implements ControllerResolverInterface
 {
     /**
      * ControllerResolver Constructor.
